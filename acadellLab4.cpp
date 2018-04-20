@@ -46,9 +46,21 @@ int main(int argc, char *argv[])
 
     int wayNum = std::atoi(argv[2]);
     int setNum = 16/wayNum;
-    int cache[setNum][wayNum] = {0};
-    int valid[setNum][wayNum] = {0};
-    int age[setNum][wayNum] = {0};
+    int** cache = NULL;
+    int** valid = NULL;
+    int** age = NULL;
+    
+    cache = new int*[setNum];//[wayNum];
+    valid = new int*[setNum];//[wayNum];
+    age = new int*[setNum];//[wayNum];
+
+    for(int i = 0; i < setNum; i++)
+    {
+        cache[i] = new int[wayNum];
+        valid[i] = new int[wayNum];
+        age[i] = new int[wayNum];
+    }
+
 
     //print name and cache
     std::cout << "Anderson Cadell" << std::endl;
@@ -163,6 +175,19 @@ int main(int argc, char *argv[])
     } 
     std::cout << "Hits " << hitCount << std::endl;
     std::cout << "Total Accesses " << accesses << std::endl;
+
+
+
+    for(int i = 0; i < setNum; i++)
+    {
+        delete [] cache[i];
+        delete [] valid[i];
+        delete [] age[i];
+    }
+    
+    delete [] cache;
+    delete [] valid;
+    delete [] age;
 
 
 
