@@ -8,6 +8,7 @@ Date: April 18, 2018
 #include <fstream>
 #include <cstdlib>
 #include <math.h>
+#include <iomanip>
 
 std::ifstream inFile;
 
@@ -61,7 +62,7 @@ int main(int argc, char *argv[])
             {
                 cache[set][way] =0;
                 age[set][way] =0;
-                std::cout << cache[set][way] << "    ";
+                std::cout << std::setw(4) << std::setfill('0') << cache[set][way] << "    ";
             }
             else
             {
@@ -150,7 +151,7 @@ int main(int argc, char *argv[])
         {
             if(valid[set][way])
             {
-                std::cout << cache[set][way] << "    ";
+                std::cout << std::setw(4) << std::setfill('0') << cache[set][way] << "    ";
             }
             else
             {
